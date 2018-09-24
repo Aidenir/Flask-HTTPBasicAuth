@@ -23,8 +23,6 @@ class HTTPAuth(object):
         self.realm = "Authentication Required"
         self.get_user(default_get_user)
         self.error_handler(default_auth_error)
-        self.get_user_callback = None
-        self.auth_error_callback = None
 
     def get_user(self, f):
         self.get_user_callback = f
@@ -42,6 +40,7 @@ class HTTPAuth(object):
             return res
         self.auth_error_callback = decorated
         return decorated
+
 
     def login_required(self, f):
         @wraps(f)
@@ -94,7 +93,8 @@ class HTTPBasicAuth(HTTPAuth):
                 provided_password = self.hash_password_callback(auth.password)
             except TypeError:
                 provided_password = self.hash_password_callback(auth.username,
-                                                              auth.password)
+                                                                auth.password)
             return provided_password == stored_password
         return False
+
 
