@@ -10,7 +10,7 @@ from setuptools import setup
 setup(
     name='Flask-HTTPBasicAuth',
     version='1.0.0',
-    url='http://github.com/aidenir/flask-httpbasicauth/',
+    url='http://github.com/Aidenir/flask-httpbasicauth/',
     license='MIT',
     author='Viktor Hansson',
     author_email='viktor.hansson@me.com',
